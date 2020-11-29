@@ -8,6 +8,13 @@ class ArticlesController < ApplicationController
 
     def new
       @article = Article.new
+      # The reason why we added @article = Article.new in the ArticlesController is 
+      # that otherwise @article would be nil in our view, and calling @article.errors.any? 
+      # would throw an error
+    end
+
+    def edit
+      @article = Article.find(params[:id])
     end
 
     def create 
